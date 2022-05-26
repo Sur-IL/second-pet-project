@@ -12,6 +12,12 @@ body {
     font-family: 'Overpass', sans-serif;
 }
 
+.container {
+    padding-right: 16px;
+    padding-left: 16px;
+    box-sizing: border-box;
+}
+
 .header {
     background: #222222;
     height: 74px;
@@ -19,8 +25,8 @@ body {
     .header__wrap {
         display: flex;
         justify-content: space-between;
-        padding: 18px 16px;
-        box-sizing: border-box;
+        padding-top: 18px;
+        padding-bottom: 18px;
 
         .basket__wrap,
         .account {
@@ -38,8 +44,14 @@ body {
 }
 
 @media (min-width: 768px) {
+    .container {
+        padding-right: 32px;
+        padding-left: 32px;
+    }
+
     .header .header__wrap {
-        padding: 18px 32px;
+        padding-top: 18px;
+        padding-bottom: 18px;
 
         .menu__list {
             width: 169px;
@@ -95,8 +107,14 @@ body {
 }
 
 @media (min-width: 1206px) {
+    .container {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
     .header .header__wrap {
-        padding: 18px 0;
+        padding-top: 18px;
+        padding-bottom: 18px;
     }
 }
 
@@ -198,6 +216,7 @@ body {
 @media (min-width: 1142px) {
     .brand-wrap {
         max-height: 765px;
+        position: relative;
 
         .brand {
             max-height: inherit;
@@ -252,6 +271,214 @@ body {
     }
 }
 
+.brand-dark {
+    display: none;
+}
+
+@media (min-width: 1142px) {
+    .hidden {
+        visibility: hidden;
+    }
+
+    .brand-wrap .brand-dark {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+
+        .navbar {
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 232px;
+            background: #FFFFFF;
+            box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+            opacity: 1;
+            padding: 34px;
+            box-sizing: border-box;
+            overflow: scroll;
+
+            .for {
+                display: flex;
+                flex-direction: column;
+                box-sizing: border-box;
+                padding-left: 20px;
+                margin-bottom: 20px;
+
+                .menu-link {
+                    display: block;
+                    text-decoration: none;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 17px;
+                    color: #6F6E6E;
+                    cursor: pointer;
+                }
+
+                .menu-link:not(:last-child) {
+                    margin-bottom: 11px;
+                }
+            }
+
+            .menu-close {
+                position: absolute;
+                right: 16px;
+                top: 16px;
+                cursor: pointer;
+            }
+
+            .menu {
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 17px;
+                color: #000000;
+                margin-bottom: 24px;
+            }
+
+            .heading-text {
+                display: block;
+                text-decoration: none;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 17px;
+                color: #F16D7F;
+                margin-bottom: 12px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
 /*-----------------------
 --------- brand ---------
+-----------------------*/
+
+/*-----------------------
+--------- offer ---------
+-----------------------*/
+
+.offer {
+    display: flex;
+    flex-direction: column;
+    margin: 64px 0;
+
+    .offer__card {
+        width: 100%;
+        position: relative;
+
+        .offer__img {
+            width: inherit;
+            height: auto;
+            display: block;
+        }
+
+        .offer__img-long {
+            height: 111px;
+        }
+
+        .text__img {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            text-align: center;
+
+            .text__offer {
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 19px;
+                color: #FFFFFF;
+            }
+
+            .heading__img {
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 29px;
+                color: #F16D7F;
+            }
+        }
+
+        .text__img-margin-1 {
+            top: 50%;
+            left: 50%;
+            margin-top: -22px;
+            margin-left: -70px;
+        }
+
+        .text__img-margin-2 {
+            top: 50%;
+            left: 50%;
+            margin-top: -22px;
+            margin-left: -50px;
+        }
+
+        .text__img-margin-3 {
+            top: 50%;
+            left: 50%;
+            margin-top: -22px;
+            margin-left: -53px;
+        }
+
+        .text__img-long-margin {
+            top: 50%;
+            left: 50%;
+            margin-top: -22px;
+            margin-left: -78px;
+        }
+    }
+
+    .offer__card:not(:last-child) {
+        margin-bottom: 32px;
+    }
+}
+
+@media (min-width: 768px) {
+    .offer {
+        margin-top: 20px;
+        margin-bottom: 155px;
+        display: grid;
+        grid-template: 1fr inherit / 1fr 1fr 1fr;
+        gap: 19px;
+
+        .offer__card-last {
+            grid-column-start: 1;
+            grid-column-end: 4;
+        }
+
+        .offer__card {
+            .offer__img-long {
+                height: 116px;
+            }
+
+            .text__img-long-margin {
+                top: 50%;
+            }
+        }
+
+        .offer__card:not(:last-child) {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .offer {
+        margin-left: auto;
+        margin-right: auto;
+
+        .offer__card {
+            .offer__img-long {
+                height: 180px;
+            }
+        }
+    }
+}
+
+/*-----------------------
+--------- offer ---------
 -----------------------*/
