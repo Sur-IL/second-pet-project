@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 /*-----------------------
@@ -45,6 +46,11 @@ body {
 
 @media (min-width: 768px) {
     .container {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .header .container {
         padding-right: 32px;
         padding-left: 32px;
     }
@@ -57,7 +63,7 @@ body {
             width: 169px;
             display: flex;
 
-            .basket__wrap,
+            .cart__wrap,
             .account {
                 display: block;
                 padding: 9px 0;
@@ -68,14 +74,19 @@ body {
                 background-repeat: 42px;
             }
 
-            .basket__wrap {
+            .cart__wrap {
                 position: relative;
                 display: flex;
                 width: 112px;
                 justify-content: flex-end;
             }
 
-            .basket-count {
+            .cart-img,
+            .menu__icon {
+                cursor: pointer;
+            }
+
+            .cart-count {
                 position: absolute;
                 font-weight: 400;
                 font-size: 12px;
@@ -91,7 +102,7 @@ body {
                 right: -5px;
             }
 
-            .basket-count span {
+            .cart-count span {
                 position: relative;
                 top: 3px;
             }
@@ -481,4 +492,394 @@ body {
 
 /*-----------------------
 --------- offer ---------
+-----------------------*/
+
+/*-----------------------
+-------- products -------
+-----------------------*/
+
+.featured {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 95px;
+
+    .heading__featured {
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 36px;
+        color: #222222;
+        margin: 0 auto 6px;
+    }
+
+    .text__featured {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: #9F9F9F;
+        margin: 0 auto 48px;
+    }
+
+    .cards {
+        display: grid;
+        grid-template: 1fr 1fr 1fr 1fr 1fr 1fr / 1fr;
+        gap: 16px;
+        margin-top: 64px;
+
+        .featured__card {
+            background: #F8F8F8;
+
+            .featured__img-wrap {
+                position: relative;
+            }
+
+            .featured__img-dark {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                background: rgba(0, 0, 0, 0.5);
+                display: none;
+                flex-direction: column;
+                justify-content: center;
+                align-content: center;
+            }
+
+            .featured__img-wrap:hover .featured__img-dark {
+                display: flex;
+            }
+
+            .featured__img-dark button {
+                font-weight: 400;
+                font-size: 14px;
+                color: #FFFFFF;
+                background: none;
+                margin: 0 auto;
+                border: solid 1px white;
+                padding: 10px 15px;
+                display: flex;
+                align-items: center;
+            }
+
+            .featured__img-dark button img {
+                margin-right: 11px;
+            }
+
+            .card-img {
+                width: 100%;
+                height: 100%;
+            }
+
+            .card__title {
+                margin: 23px 27px 20px 16px;
+
+                .card-heading {
+                    font-weight: 600;
+                    font-size: 13px;
+                    line-height: 16px;
+                    color: #000000;
+                    margin-bottom: 13px;
+                }
+
+                .card-text {
+                    font-weight: 300;
+                    font-size: 14px;
+                    line-height: 17px;
+                    color: #5D5D5D;
+                    margin-bottom: 18px;
+                }
+
+                .card-price {
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 19px;
+                    color: #F16D7F;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+
+    .featured__button {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: #F16D7F;
+        padding: 15px 39px;
+        margin: 48px auto 0;
+        background: #ffffff;
+        border: 1px solid #FF6A6A;
+    }
+}
+
+@media (min-width: 768px) {
+    .featured .cards {
+        grid-template: 1fr 1fr 1fr / 1fr 1fr;
+        gap: 16px;
+    }
+}
+
+@media (min-width: 1142px) {
+    .featured .cards {
+        grid-template: 1fr / 1fr 1fr 1fr;
+        gap: 30px;
+    }
+}
+
+/*-----------------------
+-------- products -------
+-----------------------*/
+
+/*-----------------------
+-------- services -------
+-----------------------*/
+
+.services {
+    background-color: #222222;
+    padding: 46px 14px;
+
+    .service__box {
+        display: flex;
+        flex-direction: column;
+        margin: 46px 0 81px 0;
+
+        .service__content {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+
+            .services__logo {
+                width: 35px;
+                height: 35px;
+                align-self: center;
+            }
+
+            .services__heading {
+                font-weight: 400;
+                font-size: 19.96px;
+                line-height: 24px;
+                color: #FBFBFB;
+                margin-top: 24px;
+                margin-bottom: 14px;
+                opacity: 0.9;
+            }
+
+            .services__text {
+                font-weight: 300;
+                font-size: 13.972px;
+                line-height: 17px;
+                text-align: center;
+                color: #FBFBFB;
+                opacity: 0.9;
+            }
+        }
+
+        .service__content_margin {
+            margin: 46px 0;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .services {
+        padding: 46px 204px 64px 204px;
+
+        .service__box {
+            margin: 0;
+        }
+    }
+}
+
+@media (min-width: 1142px) {
+    .services {
+        background-color: #222222;
+        padding: 46px 14px;
+
+        .service__box {
+            display: flex;
+            flex-direction: row;
+            margin-left: auto;
+            margin-right: auto;
+
+            .service__content {
+                margin: 46px 14px;
+            }
+        }
+    }
+}
+
+/*-----------------------
+-------- services -------
+-----------------------*/
+
+/*-----------------------
+------- subscribe -------
+-----------------------*/
+
+.subscribe {
+    background-image: url(img/subscribes/background-img.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .subscribe__box {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding-top: 64px;
+        padding-bottom: 109px;
+
+        .about {
+            margin-bottom: 59px;
+
+            .about__text {
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                color: #222224;
+            }
+        }
+
+        .about img {
+            margin-bottom: 30px;
+        }
+
+        .subscribe__form {
+
+            .sub__heading {
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 40px;
+                color: #222224;
+            }
+
+            .sub__text {
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 30px;
+                color: #222224;
+                margin-bottom: 20px;
+            }
+
+            .sub__input {
+                height: 50px;
+                background: #E1E1E1;
+                border-radius: 50px 0 0 50px;
+                width: 260px;
+                padding-left: 22px;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 17px;
+            }
+
+            .sub__button {
+                height: 50px;
+                background: #F16D7F;
+                border-radius: 0 50px 50px 0;
+                width: 100px;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 17px;
+                color: #FFFFFF;
+            }
+        }
+
+        .subscribe__form div {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .subscribe {
+
+        .subscribe__box {
+            padding: 64px 204px 140px 204px;
+        }
+    }
+}
+
+@media (min-width: 1142px) {
+    .subscribe {
+
+        .subscribe__box {
+            flex-direction: row;
+            justify-content: center;
+            padding: 0;
+
+            .about {
+                margin-right: 300px;
+                width: 360px;
+                margin-top: 97px;
+                margin-bottom: 156px;
+            }
+
+            .subscribe__form {
+                margin-top: 150px;
+                margin-bottom: 156px;
+            }
+        }
+    }
+}
+
+/*-----------------------
+------- subscribe -------
+-----------------------*/
+
+/*-----------------------
+--------- footer --------
+-----------------------*/
+
+.footer {
+    background-color: #222222;
+
+    .footer__box {
+        display: flex;
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .copy {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: #FBFBFB;
+    }
+
+    .footer__icons {
+        margin: 43px auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .footer {
+
+        .footer__box {
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 0 16px;
+        }
+
+        .copy {
+            margin: 30px 0;
+        }
+
+        .footer__icons {
+            margin: 24px 0 16px 0;
+        }
+    }
+}
+
+@media (min-width: 1142px) {
+    .footer {
+
+        .footer__box {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
+/*-----------------------
+--------- footer --------
 -----------------------*/
