@@ -10,6 +10,18 @@ class List {
         this.filtered = [];
         this._init();
     }
+    filter(value) {
+        const regexp = new RegExp(value, 'i');
+        this.filtered = this.allProducts.filter(product => regexp.test(product.product_name));
+        this.allProducts.forEach(el => {
+            const block = document.querySelector(`.featured__card[data-id="${el.product_id}"]`);
+            if (!this.filtered.includes(el)) {
+                block.classList.add('invisible');
+            } else {
+                block.classList.remove('invisible');
+            }
+        })
+    }
     getJson(url) {
         return fetch(url ? url : `${API + this.url}`)
             .then(result => result.json())
@@ -75,6 +87,10 @@ class ProductsList extends List {
             if (event.target.classList.contains('buy_button')) {
                 this.cart.addToCart(event.target);
             }
+        });
+        document.querySelector('.search-form').addEventListener('submit', event => {
+            event.preventDefault();
+            this.filter(document.querySelector('.search-field').value);
         })
     }
 }
@@ -156,6 +172,7 @@ class CartItem extends Item {
     render() {
         return `<div class="cart-item" data-id="${this.product_id}">
                     <div class="product-bio">
+                        <img class="cartItem-img" src="${this.product_img}" alt="Some image">
                         <div class="product-desc">
                             <p class="product-title">${this.product_name}</p>
                             <p class="product-quantity">Quantity: ${this.product_quantity}</p>

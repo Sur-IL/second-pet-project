@@ -37,6 +37,37 @@ body {
   padding-bottom: 18px;
 }
 
+.header .header__wrap .search-form {
+  position: relative;
+  margin-right: 650px;
+  display: inline-block;
+}
+
+.header .header__wrap .search-field:focus {
+  outline: none;
+}
+
+.header .header__wrap .search-field {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 200px;
+  color: #fafafa;
+  padding: 10px 10px 10px 35px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #fafafa;
+}
+
+.header .header__wrap .btn-search {
+  background-color: transparent;
+  border: none;
+  color: #fafafa;
+  font-size: 1.2em;
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+}
+
 .header .header__wrap .basket__wrap,
 .header .header__wrap .account {
   display: none;
